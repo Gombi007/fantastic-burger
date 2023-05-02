@@ -1,0 +1,90 @@
+@font-face {
+    font-family: 'CastoroTitling';
+    src: url('fonts/CastoroTitling-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'BrunoAce';
+    src: url('fonts/BrunoAce-Regular.ttf');
+}
+
+:root {
+    --bg-color: linear-gradient(to bottom, rgb(118, 172, 185), rgb(2, 80, 116));
+    --menu-bg-color: rgb(0, 0, 0);
+    --menu-height: 8vh;
+    --menu-text-color: white;
+    --menu-text-color-hover: rgb(0, 188, 245);
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg-color);
+    width: 100vw;
+    height: 100vh;
+}
+
+
+.menu {
+    width: 100vw;
+    height: var(--menu-height);
+    background: var(--menu-bg-color);
+    background-image: url(/images/grill_grid.png);
+    box-shadow: 0 5px 10px black, inset 0 5px 10px black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.menu img {
+    left: 0;
+    height: var(--menu-height);
+}
+
+
+.menu-items {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.menu-items a {
+    text-decoration: none;
+    color: var(--menu-text-color);
+    font-family: BrunoAce, Courier, monospace;
+    font-size: 1.5em;
+}
+
+.menu-items a:hover {
+    border-bottom: 1px solid var(--menu-text-color-hover);
+    color: var(--menu-text-color-hover);
+}
+
+.menu-items-mobile {
+    display: none;
+    background-image: url(images/burger_menu.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: calc(var(--menu-height) / 1.5);
+    width: calc(var(--menu-height) /1.5);
+
+}
+
+.menu-items-mobile:hover {
+    background-image: url(images/burger_menu_hover.png);
+    cursor: pointer;
+
+}
+
+@media only screen and (max-width: 800px) {
+    .menu-items {
+        display: none;
+    }
+
+    .menu-items-mobile {
+        display: block;
+    }
+}
