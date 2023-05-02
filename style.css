@@ -11,21 +11,26 @@
 :root {
     --bg-color: linear-gradient(to bottom, rgb(118, 172, 185), rgb(2, 80, 116));
     --menu-bg-color: rgb(0, 0, 0);
-    --menu-height: 8vh;
+    --menu-height: 7vh;
     --menu-text-color: white;
-    --menu-text-color-hover: rgb(0, 188, 245);
+    --menu-text-color-hover: rgb(12, 148, 211);
+    --scrollbar-color-1: rgb(41, 41, 41);
+    --scrollbar-color-2: rgb(196, 196, 196);
 }
 
 html,
 body {
+    height: 100%;
     margin: 0;
     padding: 0;
     background: var(--bg-color);
-    width: 100vw;
-    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
 }
 
-
+/* Navigation */
 .menu {
     width: 100vw;
     height: var(--menu-height);
@@ -35,13 +40,12 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    z-index: 1;
 }
 
 .menu img {
-    left: 0;
     height: var(--menu-height);
 }
-
 
 .menu-items {
     display: flex;
@@ -50,7 +54,8 @@ body {
     gap: 1.5rem;
 }
 
-.menu-items a {
+.menu-items a,
+.hamburger-menu a {
     text-decoration: none;
     color: var(--menu-text-color);
     font-family: BrunoAce, Courier, monospace;
@@ -62,6 +67,9 @@ body {
     color: var(--menu-text-color-hover);
 }
 
+
+/* Hamburger menu */
+
 .menu-items-mobile {
     display: none;
     background-image: url(images/burger_menu.png);
@@ -70,14 +78,92 @@ body {
     background-repeat: no-repeat;
     height: calc(var(--menu-height) / 1.5);
     width: calc(var(--menu-height) /1.5);
-
 }
 
 .menu-items-mobile:hover {
     background-image: url(images/burger_menu_hover.png);
     cursor: pointer;
+}
+
+.hamburger-menu {
+    width: 17rem;
+    height: 12rem;
+    padding: 2rem;
+    display: none;
+    position: absolute;
+    background-image: url(images/tray.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 0 0 2rem 2rem;
+    box-shadow: 0 2px 5px black, 0 -2px 2px 1px black;
+}
+
+.hamburger-menu-active {
+    margin-top: var(--menu-height);
+    transition: 1s all;
+}
+
+.hamburger-menu-deactive {
+    margin-top: -13rem;
+    transition: 1s all;
+}
+
+.hamburger-menu-item {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    cursor: pointer;
+}
+
+.hamburger-menu-item:hover {
+    color: var(--menu-text-color-hover);
+}
+
+.hamburger-menu-ico {
+    width: 3rem;
+    height: 3rem;
+    background-image: url(images/plate.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.hamburger-menu-item:hover .hamburger-menu-ico {
+    background-image: url(images/burger.png);
 
 }
+
+/* sections*/
+.content {
+    width: 100%;
+    overflow: auto;
+    scroll-behavior: smooth;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+section {
+    width: 100%;
+}
+
+.section-div-1 {
+    height: 80vh;
+
+}
+
+.section-div-2 {
+    height: 60vh;
+
+}
+
+.section-div-3 {
+    height: 90vh;
+
+}
+
+
 
 @media only screen and (max-width: 800px) {
     .menu-items {
@@ -87,4 +173,33 @@ body {
     .menu-items-mobile {
         display: block;
     }
+
+    .hamburger-menu {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
+
+
+/* Use the same styles as for Chrome */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 1px;
+}
+
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 2px 5px var(--scrollbar-color-1);
+    border-radius: 0px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-color-2);
+    border-radius: 5px;
+}
+
+/* Custom scrollbar styles for Firefox */
+.firefox-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: var(--scrollbar-color-2) var(--scrollbar-color-1);
 }

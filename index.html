@@ -13,17 +13,47 @@
 <body>
     <div class="menu">
         <img src="/images/logo-text.png" alt="logo-text">
-
         <div class="menu-items">
-            <a href="http://">MENU</a>
-            <a href="http://">GALLERY</a>
-            <a href="http://">INFO</a>
+            <a href="#section-1">MENU</a>
+            <a href="#section-2">GALLERY</a>
+            <a href="#section-3">INFO</a>
         </div>
-        <div class="menu-items-mobile"></div>
-
+        <div class="menu-items-mobile" id="btn-hamburger-menu"></div>
         <img src="/images/order.png" alt="order-text">
     </div>
 
+    <div class="hamburger-menu hamburger-menu-deactive">
+        <a class="hamburger-menu-item" href="#section-1">
+            <div class="hamburger-menu-ico"></div>
+            MENU
+        </a>
+        <a class="hamburger-menu-item" href="#section-2">
+            <div class="hamburger-menu-ico"></div>
+            GALLERY
+        </a>
+        <a class="hamburger-menu-item" href="#section-3">
+            <div class="hamburger-menu-ico"></div>
+            INFO
+        </a>
+
+    </div>
+
+    <div class="content firefox-scrollbar">
+        <section id="section-1">
+            <div class="section-div-1"></div>
+        </section>
+        <section id="section-2">
+            <div class="section-div-2">
+            </div>
+        </section>
+        <section id="section-3">
+            <div class="section-div-3"></div>
+        </section>
+    </div>
+
+
+
+    <script src="main.js"></script>
 </body>
 
 </html>
