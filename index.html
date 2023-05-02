@@ -2,56 +2,70 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="style.css" />
     <title>Fantastic Burger</title>
 </head>
 
 <body>
     <div class="menu">
-        <img src="/images/logo-text.png" alt="logo-text">
+        <img src="/images/logo-text.png" alt="logo-text" />
         <div class="menu-items">
-            <a href="#section-1">MENU</a>
-            <a href="#section-2">GALLERY</a>
+            <a href="#section-1">GALLERY</a>
+            <a href="#section-2">MENU</a>
             <a href="#section-3">INFO</a>
         </div>
         <div class="menu-items-mobile" id="btn-hamburger-menu"></div>
-        <img src="/images/order.png" alt="order-text">
+        <img src="/images/order.png" alt="order-text" />
     </div>
 
     <div class="hamburger-menu hamburger-menu-deactive">
         <a class="hamburger-menu-item" href="#section-1">
             <div class="hamburger-menu-ico"></div>
-            MENU
+            GALLERY
         </a>
         <a class="hamburger-menu-item" href="#section-2">
             <div class="hamburger-menu-ico"></div>
-            GALLERY
+            MENU
         </a>
         <a class="hamburger-menu-item" href="#section-3">
             <div class="hamburger-menu-ico"></div>
             INFO
         </a>
-
     </div>
 
     <div class="content firefox-scrollbar">
-        <section id="section-1">
-            <div class="section-div-1"></div>
-        </section>
-        <section id="section-2">
-            <div class="section-div-2">
+        <section class="section-gallery" id="section-1">
+            <div class="pic-div">
+                <img src="images/hambi_1.jpg" alt="burger-1" />
+            </div>
+            <div class="pic-div">
+                <img src="images/hambi_2.jpg" alt="burger-2" />
+            </div>
+            <div class="pic-div">
+                <img src="images/hambi_3.jpg" alt="burger-3" />
+            </div>
+            <div class="pic-div">
+                <img src="images/hambi_4.jpg" alt="burger-4" />
+            </div>
+            <div class="pic-div">
+                <img src="images/hambi_5.jpg" alt="burger-5" />
+            </div>
+            <div class="pic-div">
+                <img src="images/hambi_6.jpg" alt="burger-6" />
+            </div>
+            <div class="pic-div">
+                <img src="images/hambi_7.jpg" alt="burger-7" />
             </div>
         </section>
-        <section id="section-3">
-            <div class="section-div-3"></div>
-        </section>
+
+        <section class="section-menu" id="section-2"></section>
+
+        <section class="section-info" id="section-3"></section>
     </div>
-
-
 
     <script src="main.js"></script>
 </body>

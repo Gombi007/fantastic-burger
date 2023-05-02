@@ -1,38 +1,44 @@
 @font-face {
-    font-family: 'CastoroTitling';
-    src: url('fonts/CastoroTitling-Regular.ttf');
+    font-family: "CastoroTitling";
+    src: url("fonts/CastoroTitling-Regular.ttf");
 }
 
 @font-face {
-    font-family: 'BrunoAce';
-    src: url('fonts/BrunoAce-Regular.ttf');
+    font-family: "BrunoAce";
+    src: url("fonts/BrunoAce-Regular.ttf");
 }
 
 :root {
-    --bg-color: linear-gradient(to bottom, rgb(118, 172, 185), rgb(2, 80, 116));
-    --menu-bg-color: rgb(0, 0, 0);
+    --bg-color: rgb(83, 107, 129);
+    --menu-bg-color: rgb(34, 42, 51);
     --menu-height: 7vh;
     --menu-text-color: white;
     --menu-text-color-hover: rgb(12, 148, 211);
     --scrollbar-color-1: rgb(41, 41, 41);
     --scrollbar-color-2: rgb(196, 196, 196);
+    --img-viewer-img-width-by-developer: 33vw;
+    --img-viewer-img-height-by-developer: 30vw;
 }
 
 html,
 body {
-    height: 100%;
     margin: 0;
     padding: 0;
-    background: var(--bg-color);
     display: flex;
     flex-direction: column;
     align-items: center;
-    overflow: hidden;
+    background: var(--bg-color);
+    background-image: url(/images/background.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    scroll-behavior: smooth;
 }
 
 /* Navigation */
 .menu {
-    width: 100vw;
+    position: fixed;
+    width: 100%;
     height: var(--menu-height);
     background: var(--menu-bg-color);
     background-image: url(/images/grill_grid.png);
@@ -67,9 +73,7 @@ body {
     color: var(--menu-text-color-hover);
 }
 
-
 /* Hamburger menu */
-
 .menu-items-mobile {
     display: none;
     background-image: url(images/burger_menu.png);
@@ -77,7 +81,7 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     height: calc(var(--menu-height) / 1.5);
-    width: calc(var(--menu-height) /1.5);
+    width: calc(var(--menu-height) / 1.5);
 }
 
 .menu-items-mobile:hover {
@@ -90,7 +94,7 @@ body {
     height: 12rem;
     padding: 2rem;
     display: none;
-    position: absolute;
+    position: fixed;
     background-image: url(images/tray.png);
     background-size: cover;
     background-position: center;
@@ -131,41 +135,68 @@ body {
 
 .hamburger-menu-item:hover .hamburger-menu-ico {
     background-image: url(images/burger.png);
-
 }
 
 /* sections*/
 .content {
-    width: 100%;
-    overflow: auto;
-    scroll-behavior: smooth;
     display: flex;
+    width: 97vw;
     flex-direction: column;
     align-items: center;
+    gap: 1rem;
 }
 
-section {
+/* Image viewer */
+.section-gallery {
     width: 100%;
+    padding-top: calc(var(--menu-height) + 3rem);
+    display: flex;
 }
 
-.section-div-1 {
-    height: 80vh;
-
+.section-gallery img {
+    width: var(--img-viewer-img-width-by-developer);
+    height: var(--img-viewer-img-height-by-developer);
 }
 
-.section-div-2 {
+.pic-div {
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: auto;
+    transition: 0.5s ease-out;
+    overflow: hidden;
+    box-shadow: 0 0 5px 5px rgb(0, 0, 0);
+}
+
+.pic-div:hover {
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: content;
+    transition: 0.5s ease-out;
+}
+
+/*TODO*/
+.section-menu {
+    width: 100%;
     height: 60vh;
-
+    padding-top: calc(var(--menu-height) + 3rem);
+    background-color: rgb(30, 15, 36);
 }
 
-.section-div-3 {
+.section-info {
+    width: 100%;
     height: 90vh;
-
+    padding-top: calc(var(--menu-height) + 3rem);
+    background-color: rgb(18, 48, 39);
 }
-
-
 
 @media only screen and (max-width: 800px) {
+    :root {
+        --img-viewer-img-width-by-developer: 63vw;
+        --img-viewer-img-height-by-developer: 60vw;
+    }
+
     .menu-items {
         display: none;
     }
@@ -180,7 +211,6 @@ section {
         gap: 1rem;
     }
 }
-
 
 /* Use the same styles as for Chrome */
 ::-webkit-scrollbar {
