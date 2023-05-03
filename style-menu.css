@@ -16,7 +16,7 @@
     justify-content: space-between;
     align-items: center;
     border-radius: 1rem 1rem 50% 50%;
-    box-shadow: 0 -1px 3px 1px whitesmoke;
+    box-shadow: 0 -1px 3px 1px var(--box-shadow-color);
 }
 
 .card:hover {
@@ -27,7 +27,7 @@
     width: 100%;
     height: 20rem;
     border-radius: 0 0 50% 50%;
-    box-shadow: 0 1px 5px 1px whitesmoke;
+    box-shadow: 0 1px 5px 1px var(--box-shadow-color);
 }
 
 .text-title {
@@ -59,8 +59,8 @@
     align-items: center;
     padding: 0.2rem;
     gap: 0.5rem;
-    border-top: 1px solid whitesmoke;
-    border-bottom: 1px solid whitesmoke;
+    border-top: 1px solid var(--box-shadow-color);
+    border-bottom: 1px solid var(--box-shadow-color);
 }
 
 .normal-price-ico {

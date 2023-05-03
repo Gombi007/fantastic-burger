@@ -9,11 +9,13 @@
 }
 
 :root {
-    --bg-color: linear-gradient(to bottom, rgb(41, 44, 71), rgb(98, 81, 131));
+    --bg-color: linear-gradient(to bottom, rgb(67, 117, 150), rgb(70, 139, 168));
     --navbar-bg-color: rgb(0, 0, 0);
     --navbar-height: 6vh;
     --navbar-text-color: white;
     --navbar-text-color-hover: #0095F3;
+    --box-shadow-color: black;
+    --box-shadow-color-light: white;
     --scrollbar-color-1: rgb(41, 41, 41);
     --scrollbar-color-2: rgb(196, 196, 196);
     --img-viewer-img-width-by-developer: 33vw;
@@ -23,9 +25,10 @@
     --menu-card-double-size-width: calc((var(--menu-width) - var(--menu-gap-size) * 1) / 2);
     /* have to minus the 3 gap because there is 3 gap between 4 elements */
     --menu-card-normal-size-width: calc((var(--menu-width) - var(--menu-gap-size) * 2) / 3);
-    --menu-card-bg-color: #044c79;
+    --menu-card-bg-color: #003d63;
     --menu-card-bg-color-hover: #035b92;
     --menu-card-color: white;
+    --info-bg-color: radial-gradient(circle, #0681ce, #035b92, #003d63);
 
 }
 
@@ -48,7 +51,7 @@ body {
     height: var(--navbar-height);
     background: var(--navbar-bg-color);
     background-image: url(/images/grill_grid.png);
-    box-shadow: 0 5px 10px black, inset 0 5px 10px black;
+    box-shadow: 0 5px 10px black, inset 0 5px 10px var(--box-shadow-color);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -108,7 +111,7 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     border-radius: 0 0 2rem 2rem;
-    box-shadow: 0 2px 5px black, 0 -2px 2px 1px black;
+    box-shadow: 0 2px 5px var(--box-shadow-color), 0 -2px 2px 1px var(--box-shadow-color);
 }
 
 .hamburger-menu-active {
@@ -187,7 +190,7 @@ body {
     flex-basis: auto;
     transition: 0.5s ease-out;
     overflow: hidden;
-    box-shadow: 0 0 5px 1px whitesmoke;
+    box-shadow: 0 0 5px 1px var(--box-shadow-color);
 }
 
 .pic-div:hover {
@@ -211,11 +214,75 @@ body {
 /*Info*/
 .section-info {
     width: 100%;
-    height: 100vh;
     display: flex;
     justify-content: center;
     gap: 1rem;
     padding-top: calc(var(--navbar-height) + 1rem);
+    margin-bottom: 2rem;
+}
+
+.info-box {
+    width: 97%;
+    height: 40vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: var(--info-bg-color);
+    color: var(--navbar-text-color);
+    box-shadow: 0 0 5px 2px var(--box-shadow-color);
+    font-family: CastoroTitling, 'Courier New', Courier, monospace;
+    font-weight: 600;
+    border-radius: 3rem;
+    padding: 0.3rem;
+}
+
+.info-box span {
+    display: flex;
+}
+
+.info-box span p {
+    margin: 0.4rem;
+
+}
+
+.info-box:nth-child(2) {
+    gap: 0.3rem;
+}
+
+.info-box:last-child {
+    gap: 3rem;
+}
+
+.social-media {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    box-shadow: 0 0 2px 2px var(--box-shadow-color-light);
+    border-radius: 5rem;
+    padding: 0.6rem;
+    text-decoration: none;
+    color: var(--navbar-text-color);
+    font-family: CastoroTitling, 'Courier New', Courier, monospace;
+    transition: 0.2s all;
+}
+
+
+.social-media:hover {
+    transform: scale(1.1);
+    transition: 0.2s all;
+}
+
+.social-media img {
+    width: 2rem;
+    height: 2rem;
+}
+
+.social-media p {
+    margin: 0;
+    padding-top: 0.4rem;
+    text-decoration: none;
 }
 
 @media only screen and (max-width: 800px) {
@@ -237,6 +304,11 @@ body {
         flex-direction: column;
         gap: 1rem;
     }
+
+    .section-info {
+        flex-direction: column;
+    }
+
 }
 
 /* Use the same styles as for Chrome */
