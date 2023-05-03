@@ -9,15 +9,24 @@
 }
 
 :root {
-    --bg-color: rgb(83, 107, 129);
-    --menu-bg-color: rgb(34, 42, 51);
-    --menu-height: 7vh;
-    --menu-text-color: white;
-    --menu-text-color-hover: rgb(12, 148, 211);
+    --bg-color: linear-gradient(to bottom, rgb(41, 44, 71), rgb(98, 81, 131));
+    --navbar-bg-color: rgb(0, 0, 0);
+    --navbar-height: 6vh;
+    --navbar-text-color: white;
+    --navbar-text-color-hover: #0095F3;
     --scrollbar-color-1: rgb(41, 41, 41);
     --scrollbar-color-2: rgb(196, 196, 196);
     --img-viewer-img-width-by-developer: 33vw;
     --img-viewer-img-height-by-developer: 30vw;
+    --menu-gap-size: 2rem;
+    --menu-width: calc(var(--menu-gap-size) + 70rem);
+    --menu-card-double-size-width: calc((var(--menu-width) - var(--menu-gap-size) * 1) / 2);
+    /* have to minus the 3 gap because there is 3 gap between 4 elements */
+    --menu-card-normal-size-width: calc((var(--menu-width) - var(--menu-gap-size) * 2) / 3);
+    --menu-card-bg-color: #044c79;
+    --menu-card-bg-color-hover: #035b92;
+    --menu-card-color: white;
+
 }
 
 html,
@@ -27,20 +36,17 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: var(--bg-color);
-    background-image: url(/images/background.png);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
     scroll-behavior: smooth;
+    background: var(--bg-color);
+    font-family: CastoroTitling, 'Courier New', Courier, monospace;
 }
 
 /* Navigation */
 .menu {
     position: fixed;
     width: 100%;
-    height: var(--menu-height);
-    background: var(--menu-bg-color);
+    height: var(--navbar-height);
+    background: var(--navbar-bg-color);
     background-image: url(/images/grill_grid.png);
     box-shadow: 0 5px 10px black, inset 0 5px 10px black;
     display: flex;
@@ -50,7 +56,7 @@ body {
 }
 
 .menu img {
-    height: var(--menu-height);
+    height: var(--navbar-height);
 }
 
 .menu-items {
@@ -58,19 +64,21 @@ body {
     justify-content: center;
     align-items: center;
     gap: 1.5rem;
+
 }
 
 .menu-items a,
 .hamburger-menu a {
     text-decoration: none;
-    color: var(--menu-text-color);
+    color: var(--navbar-text-color);
     font-family: BrunoAce, Courier, monospace;
     font-size: 1.5em;
+    text-shadow: 2px 2px 10px var(--navbar-text-color-hover)
 }
 
 .menu-items a:hover {
-    border-bottom: 1px solid var(--menu-text-color-hover);
-    color: var(--menu-text-color-hover);
+    border-bottom: 1px solid var(--navbar-text-color-hover);
+    color: var(--navbar-text-color-hover);
 }
 
 /* Hamburger menu */
@@ -80,8 +88,8 @@ body {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    height: calc(var(--menu-height) / 1.5);
-    width: calc(var(--menu-height) / 1.5);
+    height: calc(var(--navbar-height) / 1.5);
+    width: calc(var(--navbar-height) / 1.5);
 }
 
 .menu-items-mobile:hover {
@@ -104,7 +112,7 @@ body {
 }
 
 .hamburger-menu-active {
-    margin-top: var(--menu-height);
+    margin-top: var(--navbar-height);
     transition: 1s all;
 }
 
@@ -121,7 +129,7 @@ body {
 }
 
 .hamburger-menu-item:hover {
-    color: var(--menu-text-color-hover);
+    color: var(--navbar-text-color-hover);
 }
 
 .hamburger-menu-ico {
@@ -137,7 +145,7 @@ body {
     background-image: url(images/burger.png);
 }
 
-/* sections*/
+/* ---------------Content--------------*/
 .content {
     display: flex;
     width: 97vw;
@@ -146,11 +154,24 @@ body {
     gap: 1rem;
 }
 
+/*Intro*/
+.intro {
+    padding-top: calc(var(--navbar-height) + 1rem);
+    margin-bottom: calc(var(--navbar-height)*-1);
+}
+
+.intro p {
+    margin: 0;
+    font-family: BrunoAce, Courier, monospace;
+    font-size: 2em;
+    color: var(--navbar-text-color);
+}
+
 /* Image viewer */
 .section-gallery {
     width: 100%;
-    padding-top: calc(var(--menu-height) + 3rem);
     display: flex;
+    padding-top: calc(var(--navbar-height) + 1rem);
 }
 
 .section-gallery img {
@@ -166,7 +187,7 @@ body {
     flex-basis: auto;
     transition: 0.5s ease-out;
     overflow: hidden;
-    box-shadow: 0 0 5px 5px rgb(0, 0, 0);
+    box-shadow: 0 0 5px 1px whitesmoke;
 }
 
 .pic-div:hover {
@@ -176,19 +197,25 @@ body {
     transition: 0.5s ease-out;
 }
 
-/*TODO*/
+/*Menu*/
 .section-menu {
-    width: 100%;
-    height: 60vh;
-    padding-top: calc(var(--menu-height) + 3rem);
-    background-color: rgb(30, 15, 36);
+    width: var(--menu-width);
+    display: flex;
+    justify-content: center;
+    gap: var(--menu-gap-size);
+    flex-wrap: wrap;
+    padding-top: calc(var(--navbar-height) + 1rem);
+
 }
 
+/*Info*/
 .section-info {
     width: 100%;
-    height: 90vh;
-    padding-top: calc(var(--menu-height) + 3rem);
-    background-color: rgb(18, 48, 39);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    padding-top: calc(var(--navbar-height) + 1rem);
 }
 
 @media only screen and (max-width: 800px) {
